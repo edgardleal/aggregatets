@@ -1,9 +1,6 @@
 /**
  * export-database-data.ts
  *
- * Copyright © Stationfy, Inc 2022.
- *
- * All rights reserved. Do not distribute.
  * SDG
  */
 
