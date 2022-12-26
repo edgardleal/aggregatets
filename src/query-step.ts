@@ -12,5 +12,5 @@ export const QUERY_OPERATIONS = ['$match', '$group', '$sort', '$project']
  * 
  **/
 export default interface QueryStep<T = unknown> {
-  [key: typeof QUERY_OPERATIONS[number]]: T;
+  [key: typeof QUERY_OPERATIONS[number]]: Partial<T> | any;
 }

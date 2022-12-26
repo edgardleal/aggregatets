@@ -6,7 +6,6 @@
 
 import normalizeJsonPath from '../normalize-jsonp';
 
-
 describe('normalizeJsonPath', () => {
   it.each([
     { input: '', result: '' },

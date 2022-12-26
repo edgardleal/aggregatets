@@ -33,9 +33,9 @@ export default class ProjectStep<T = unknown> implements AggregateStep<T> {
 
     queryFields.forEach((field: string) => {
       const fieldValue = this.query[field]
-      if (fieldValue === 1) {
+      if (fieldValue as unknown as number === 1) {
         pickList.push(field)
-      } else if (fieldValue === -1) {
+      } else if (fieldValue as unknown as number === -1) {
         omitList.push(field)
       } else if (typeof fieldValue === 'function') {
         functionList.push({
