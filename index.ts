@@ -9,12 +9,14 @@ import CompiledStep from './src/compiled-step'
 import QueryStep from './src/query-step'
 import GroupStep from './src/steps/group-step'
 import MatchStep from './src/steps/match-step'
+import ProjectStep from './src/steps/project-step'
 import SyncAggregateRunner from './src/sync-aggregate-runner'
 
 sourceMapSupport.install()
 
 const OPERATIONS: { [key: string]: { new (query: unknown): AggregateStep } } = {
   $match: MatchStep,
+  $project: ProjectStep,
   $group: GroupStep
 }
 

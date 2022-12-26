@@ -1,5 +1,31 @@
 {
   "configurations": {
+    "jest": {
+      "adapter": "vscode-node",
+      "breakpoints": {
+        "exception": {
+          "caught": "N",
+          "uncaught": "N"
+        }
+      },
+      "configuration": {
+        "request": "launch",
+        "protocol": "auto",
+        "stopOnEntry": false,
+        "console": "integratedTerminal",
+        "program": "${workspaceRoot}/node_modules/.bin/jest",
+        "args": [
+          "src/steps/__tests__/project-step.test.ts",
+          "-t",
+          "should accepts -1 for fields that should be omited"
+        ],
+        "environment": [
+          "DEBUG=arena*",
+          "env=dev"
+        ],
+        "cwd": "${workspaceRoot}"
+      }
+    },
     "run": {
       "adapter": "vscode-node",
       "configuration": {
