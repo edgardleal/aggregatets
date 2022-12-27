@@ -15,9 +15,9 @@
         "console": "integratedTerminal",
         "program": "${workspaceRoot}/node_modules/.bin/jest",
         "args": [
-          "src/steps/__tests__/project-step.test.ts",
+          "/Users/edgardleal/sd-edgard/projetos/personal/aggregatets/src/steps/__tests__/group-step.test.ts",
           "-t",
-          "should accepts -1 for fields that should be omited"
+          "when passing an invalid json path on _id field, should use the string value as group key"
         ],
         "environment": [
           "DEBUG=arena*",

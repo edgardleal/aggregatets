@@ -28,6 +28,14 @@ make
 make test
 ```
 
+## Features
+
+- [X] $match
+  - [ ] $match with regex
+- [X] $project
+- [X]] $group
+- [ ] $sort
+
 ## Author
 
 👤 ** edgardleal **

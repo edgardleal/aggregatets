@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * export-database-data.ts
  *
@@ -27,6 +28,12 @@ export default class SyncAggregateRunner<T extends Array<unknown> = unknown[]> i
       }
       if (item.reduce) {
         currentList = currentList.reduce(item.reduce.bind(item)) as unknown as any
+      }
+      if (item.forEach) {
+        currentList.forEach(item.forEach.bind(item)) as unknown as any
+        if (item.getComputedResult) {
+          currentList = item.getComputedResult()
+        }
       }
     }
     return currentList

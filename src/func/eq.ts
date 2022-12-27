@@ -1,9 +1,6 @@
 /**
  * export-database-data.ts
  *
- * 
- *
- * All rights reserved. Do not distribute.
  * SDG
  */
 
