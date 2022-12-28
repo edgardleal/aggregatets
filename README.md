@@ -6,6 +6,9 @@
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
+  <a href="https://github.com/edgardleal/aggregatets/actions/workflows/deployment.yml" target="_blank">
+    <img alt="Build Status" src="https://github.com/edgardleal/aggregatets/actions/workflows/deployment.yml/badge.svg" />
+  </a>
 </p>
 
 > Mongo like aggregations on arrays
