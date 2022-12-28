@@ -15,5 +15,5 @@ describe('isJPath', () => {
   ])('when receive $input as input, should return $result', ({ input, result }) => {
     expect(isJPath(input)).toBe(result)
   })
-});
+})
 

@@ -4,7 +4,7 @@
  * SDG
  */
 
-import normalizeJsonPath from '../normalize-jsonp';
+import normalizeJsonPath from '../normalize-jsonp'
 
 describe('normalizeJsonPath', () => {
   it.each([
@@ -16,4 +16,4 @@ describe('normalizeJsonPath', () => {
   ])('when receive $input, should return $result', ({ input, result }) => {
     expect(normalizeJsonPath(input as any)).toBe(result)
   })
-});
+})
