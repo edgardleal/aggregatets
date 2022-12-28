@@ -3,7 +3,32 @@ on:
   release:
     types: [created]
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: 'yarn'
+      - run: yarn install --immutable --immutable-cache --check-cache
+      - run: yarn lint
+
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: 'yarn'
+      - run: yarn install --immutable --immutable-cache --check-cache
+      - run: yarn test
+
   build:
+    needs: [lint, tests]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -11,8 +36,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
+          cache: 'yarn'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
+      - run: yarn install --immutable --immutable-cache --check-cache
+      - run: yarn build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

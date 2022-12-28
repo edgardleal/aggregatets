@@ -10,19 +10,55 @@
 
 > Mongo like aggregations on arrays
 
-## Setup
+## Install
+
+```
+yarn add aggregatets
+```
+
+or using `npm`
+
+```
+npm i aggregatets
+```
+
+## Basic Usage
+
+```js
+import aggregate from 'aggregatets'
+
+const list = [{ name: 'test', value: 10 }, { name: 'jhon', value: 32 }, { name: 'Ester', value: 150 }]
+
+const result = aggregate(list, [
+  {
+    $project: {
+      name: 1
+    }
+  }
+])
+
+console.log(result)
+// [ {name: 'test', }, { name: 'jhon' }, { name: 'Ester' }]
+
+```
+
+## Development
+
+> to update or improve this project
+
+### Setup
 
 ```sh
 yarn install
 ```
 
-## Usage
+### Run
 
 ```sh
 make
 ```
 
-## Run tests
+### Run tests
 
 ```sh
 make test
