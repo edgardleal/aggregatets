@@ -39,12 +39,11 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '16'
-      - run: npm ci
-      - run: npm test
+      - run: yarn install --immutable --immutable-cache --check-cache
       - name: Release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release --branches main
+        run: yarn semantic-release --branches main
 
   # build:
   #   needs: [lint, tests]
