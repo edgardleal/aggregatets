@@ -44,6 +44,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/edgardleal/aggregatets.git"
+    "url": "git@github.com:edgardleal/aggregatets.git"
   }
 }
