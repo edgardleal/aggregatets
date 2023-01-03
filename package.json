@@ -13,7 +13,7 @@
     "test:fast": "jest --maxWorkers=50% --watchAll=false",
     "test:coverage": "yarn test --coverage --coverageReporters html",
     "build": "tsc",
-    "lint": "eslint .",
+    "lint": "eslint index.ts src",
     "lint:staged": "yarn lint-staged",
     "validate": "yarn lint:staged && yarn test --collectCoverage",
     "semantic-release": "semantic-release",
