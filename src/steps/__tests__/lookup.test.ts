@@ -4,8 +4,8 @@
  * SDG
  */
 
-import CompiledStep from "../../compiled-step";
-import LookupStep, { LookupQuery } from "../lookup";
+import CompiledStep from '../../compiled-step'
+import LookupStep, { LookupQuery } from '../lookup'
 
 describe('lookup', () => {
   const list = [
@@ -30,7 +30,7 @@ describe('lookup', () => {
     list.forEach(compiled.forEach?.bind(compiled))
     const result = compiled.getComputedResult!()[0]
     expect(result.name).toBe('Mary')
-  });
+  })
   it('field defined in `as` parameter should be an array', async () => {
     const compiled = await compile({
       localField: 'value',
@@ -42,7 +42,7 @@ describe('lookup', () => {
     list.forEach(compiled.forEach?.bind(compiled))
     const result = compiled.getComputedResult!()[0]
     expect(result.items).toHaveLength(1)
-  });
+  })
   it('should return only the items that match the condition', async () => {
     const compiled = await compile({
       localField: 'id',
@@ -54,7 +54,7 @@ describe('lookup', () => {
     list.forEach(compiled.forEach?.bind(compiled))
     const result = compiled.getComputedResult!()
     expect(result).toHaveLength(2)
-  });
+  })
   it('should merge two arrays based on the filter function', async () => {
     const compiled = await compile({
       filter: ({ local, foreign }: any) => foreign.fullName.indexOf(local.name) > -1,
@@ -65,21 +65,21 @@ describe('lookup', () => {
     list.forEach(compiled.forEach?.bind(compiled))
     const result = compiled.getComputedResult!()
     expect(result).toMatchSnapshot()
-  });
+  })
   it.each([
     { filter: null, localField: null, foreignField: 'test' },
     { filter: null, localField: 'name', foreignField: null },
   ])('when filter is null, and localField is $localField and foreignField is $foreignField should throw an Error', async ({ filter, foreignField, localField }) => {
-      const promise = new LookupStep({ filter, localField, foreignField } as any).compile()
-      await expect(promise).rejects.toBeInstanceOf(Error)
-    });
+    const promise = new LookupStep({ filter, localField, foreignField } as any).compile()
+    await expect(promise).rejects.toBeInstanceOf(Error)
+  })
 
   it.each([
     { result: true, filter: null, localField: 'test', foreignField: 'test' },
     { result: true, filter: () => true, localField: null, foreignField: null },
   ])('when filter is filled or localField is $localField and foreignField is $foreignField should not throw an Error', async ({ filter, foreignField, localField }) => {
-      const promise = new LookupStep({ filter, localField,foreignField } as any).compile()
-      await expect(promise).resolves.toBeTruthy()
-    });
-});
+    const promise = new LookupStep({ filter, localField,foreignField } as any).compile()
+    await expect(promise).resolves.toBeTruthy()
+  })
+})
 
