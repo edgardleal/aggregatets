@@ -9,12 +9,18 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
+    "test:ci": "jest --runInBand --watchAll=false",
+    "test:fast": "jest --maxWorkers=50% --watchAll=false",
     "test:coverage": "yarn test --coverage --coverageReporters html",
     "build": "tsc",
-    "lint": "eslint  './**/*.ts'",
-    "validate": "yarn lint && yarn test --collectCoverage",
+    "lint": "eslint index.ts src",
+    "lint:staged": "yarn lint-staged",
+    "validate": "yarn lint:staged && yarn test --collectCoverage",
     "semantic-release": "semantic-release",
     "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.ts": "yarn eslint"
   },
   "devDependencies": {
     "@types/google-spreadsheet": "^3.0.0",
@@ -31,6 +37,7 @@
     "eslint-plugin-import": "^2.20.1",
     "husky": "^8.0.2",
     "jest": "^29.3.1",
+    "lint-staged": "^13.1.0",
     "semantic-release": "^19.0.5",
     "semantic-release-cli": "^5.4.4",
     "ts-jest": "^29.0.3",

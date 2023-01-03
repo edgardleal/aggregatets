@@ -7,7 +7,10 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended'
   ],
-  'overrides': [
+  overrides: [
+    {
+      files: ['**/*.ts'],
+    },
   ],
   'parser': '@typescript-eslint/parser',
   'parserOptions': {
