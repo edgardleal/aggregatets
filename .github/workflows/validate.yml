@@ -13,8 +13,8 @@ jobs:
         with:
           node-version: '16.x'
           cache: 'npm'
-      - run: npm ci
-      - run: npm run lint
+      - run: yarn install --immutable --immutable-cache --check-cache
+      - run: yarn lint
 
   tests:
     runs-on: ubuntu-latest
@@ -25,6 +25,6 @@ jobs:
         with:
           node-version: '16.x'
           cache: 'npm'
-      - run: npm ci
-      - run: npm test
+      - run: yarn install --immutable --immutable-cache --check-cache
+      - run: yarn test
 
