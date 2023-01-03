@@ -27,19 +27,34 @@ jobs:
       - run: yarn install --immutable --immutable-cache --check-cache
       - run: yarn test
 
-  build:
+  release:
     needs: [lint, tests]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
-      - uses: actions/checkout@v3
-      # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
-          node-version: '16.x'
-          cache: 'yarn'
-          registry-url: 'https://registry.npmjs.org'
-      - run: yarn install --immutable --immutable-cache --check-cache
-      - run: yarn build
-      - run: npm publish
+          node-version: '16'
+      - run: npm ci
+      - run: npm test
+      - name: Release
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
+
+  # build:
+  #   needs: [lint, tests]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     # Setup .npmrc file to publish to npm
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: '16.x'
+  #         cache: 'yarn'
+  #         registry-url: 'https://registry.npmjs.org'
+  #     - run: yarn install --immutable --immutable-cache --check-cache
+  #     - run: yarn build
+  #     - run: npm publish
+  #       env:
+  #         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
