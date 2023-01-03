@@ -47,7 +47,6 @@ export default class LookupStep<T = unknown, R = unknown> implements AggregateSt
               ...item,
               [query.as]: [...((item as any)[query.as] || []), foreignItem],
             } as R)
-            
           }
         })
         return item
