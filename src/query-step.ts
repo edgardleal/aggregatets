@@ -5,7 +5,7 @@
  * SDG
  */
 
-export const QUERY_OPERATIONS = ['$match', '$group', '$sort', '$project']
+export const QUERY_OPERATIONS = ['$match', '$group', '$sort', '$project', '$lookup']
 
 /**
  * QueryStep<T = unknown>

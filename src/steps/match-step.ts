@@ -28,7 +28,7 @@ export default class MatchStep<T = unknown> implements AggregateStep<T> {
 
   constructor(private query: QueryStep<T>) { }
 
-  compile(): CompiledStep<T[]> {
+  async compile(): Promise<CompiledStep<T[]>> {
     const queryFields = Object.keys(this.query)
     const parsedQueryFields = queryFields.map((field: string) => {
       return generateEqualForValue(field, this.query[field])

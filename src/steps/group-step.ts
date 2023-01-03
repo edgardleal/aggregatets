@@ -6,7 +6,6 @@
  */
 
 import jp from 'jsonpath'
-import { forEach } from 'lodash'
 import AggregateStep from '../aggregate-step'
 import CompiledStep from '../compiled-step'
 import parseJSONObject from '../parse-json-object'
@@ -48,7 +47,7 @@ export default class GroupStep<T = unknown> implements AggregateStep<T> {
     }
   }
 
-  compile(): CompiledStep<T[]> {
+  async compile(): Promise<CompiledStep<T[]>> {
     if (!this.query._id) {
       throw new Error('The field _id is required for group query')
     }

@@ -72,7 +72,8 @@ make test
 - [X] $match
   - [ ] $match with regex
 - [X] $project
-- [X]] $group
+- [X] $group
+- [X] $lookup
 - [ ] $sort
 
 ## Author

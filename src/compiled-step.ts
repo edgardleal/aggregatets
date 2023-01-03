@@ -14,7 +14,7 @@ export type ReduceFunction<R = unknown, T extends Array<unknown> = unknown[]> = 
  * Used internally to map or reduce the data
  **/
 export default interface CompiledStep<T extends Array<unknown> = unknown[], R = unknown> {
-  getComputedResult?: () => T;
+  getComputedResult?: () => R[];
   forEach?: MapFunction<T>;
   filter?: FilterFunction<T>;
   map?: MapFunction<T>;

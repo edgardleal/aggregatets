@@ -8,6 +8,7 @@ import AggregateStep from './src/aggregate-step'
 import CompiledStep from './src/compiled-step'
 import QueryStep from './src/query-step'
 import GroupStep from './src/steps/group-step'
+import LookupStep from './src/steps/lookup'
 import MatchStep from './src/steps/match-step'
 import ProjectStep from './src/steps/project-step'
 import SyncAggregateRunner from './src/sync-aggregate-runner'
@@ -17,7 +18,8 @@ sourceMapSupport.install()
 const OPERATIONS: { [key: string]: { new (query: unknown): AggregateStep } } = {
   $match: MatchStep,
   $project: ProjectStep,
-  $group: GroupStep
+  $group: GroupStep,
+  $lookup: LookupStep
 }
 
 /**
@@ -37,7 +39,7 @@ export async function aggregate<T = unknown>(data: T[], steps: QueryStep<T>[]): 
     }
     const instance = new clazz(item[keys[0]])
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    compiledSteps.push(instance.compile() as any)
+    compiledSteps.push(await instance.compile() as any)
   }
 
   return new SyncAggregateRunner(data, compiledSteps).run()

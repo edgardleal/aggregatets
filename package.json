@@ -2,6 +2,7 @@
   "name": "aggregatets",
   "version": "1.0.0",
   "main": "dist/index.js",
+  "keywords": ["data", "aggregation"],
   "license": "MIT",
   "scripts": {
     "test": "jest",
@@ -30,8 +31,6 @@
   "dependencies": {
     "jsonpath": "^1.1.1",
     "lodash": "^4.17.21",
-    "nconf": "^0.11.3",
-    "pino": "^7.2.0",
     "source-map-support": "^0.5.21"
   }
 }

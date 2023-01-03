@@ -22,7 +22,7 @@ export default class ProjectStep<T = unknown> implements AggregateStep<T> {
 
   constructor(private query: QueryStep<T>) { }
 
-  compile(): CompiledStep<T[]> {
+  async compile(): Promise<CompiledStep<T[]>> {
     if (this.query.$project) {
       throw new Error(`Wrong query syntax: ${JSON.stringify(this.query, null, 2)}`,)
     }

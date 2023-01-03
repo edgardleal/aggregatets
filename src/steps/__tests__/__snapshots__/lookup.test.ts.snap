@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lookup should merge two arrays based on the filter function 1`] = `
+[
+  {
+    "id": 2,
+    "name": "Mary",
+    "phone": [
+      {
+        "fullName": "Mary Jane",
+        "history": [],
+      },
+    ],
+    "value": 30,
+  },
+]
+`;

@@ -11,5 +11,5 @@ import CompiledStep from './compiled-step'
  * Query syntax for each aggregation step.
  **/
 export default interface AggregateStep<T = unknown> {
-  compile: () => CompiledStep<T[]>;
+  compile: () => Promise<CompiledStep<T[]>>;
 }
